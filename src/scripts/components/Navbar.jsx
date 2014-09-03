@@ -20,49 +20,9 @@ var FrontpageListItem = require('../../scripts/components/FrontpageListItem.jsx'
 
 var Navbar = React.createClass({
   render: function () {
-    var pageName = this.props.name;
-    var categories = this.props.categories.map(function(category){
-      return(
-        <FrontpageListItem content={category} />              
-      )
-    });
     return (
         <Grid>
-            <PageHeader>Chefssss<small>  Tune Food Wizards Repo {pageName}</small></PageHeader>
 
-            <Row className="show-grid">
-              <Col xs={10}>
-                <Carousel>
-                  <CarouselItem>
-                    <img width={1000} height={200} alt="900x500" src="http://placehold.it/900X500"/>
-                    <div className="carousel-caption">
-                      <h3>First slide label</h3>
-                      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <img width={1000} height={200} alt="900x500" src="http://placehold.it/900X500"/>
-                    <div className="carousel-caption">
-                      <h3>Second slide label</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <img width={1000} height={200} alt="900x500" src="http://placehold.it/900X500"/>
-                    <div className="carousel-caption">
-                      <h3>Third slide label</h3>
-                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </div>
-                  </CarouselItem>
-                </Carousel>
-              </Col>
-              <Col xs={2}>
-                {categories}
-              </Col>
-              <Col xs={2}>
-
-              </Col>
-            </Row>
         </Grid>
 
       );

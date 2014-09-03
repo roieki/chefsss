@@ -5,7 +5,14 @@
 'use strict';
 
 var React = require('react/addons');
-var Link = require('react-router/Link');
+var ReactRouter = require('react-router-component');
+
+var Link = ReactRouter.Link;
+
+var FullpageImage = require('../../scripts/components/FullpageImage.jsx');
+var BigAssTitle = require('../../scripts/components/BigAssTitle.jsx');
+
+
 
 require('../../styles/Category.css');
 var PageHeader = require('react-bootstrap/PageHeader');
@@ -16,37 +23,32 @@ var Button = require('react-bootstrap/Button');
 
 var Category = React.createClass({
   getInitialState: function() {
-    this.recepies = [];
-    return {recepies: []};
-  },
-  componentWillMount: function() {
-    this.recepiesRef = new Firebase("https://brilliant-fire-612.firebaseio.com/recepies_"+this.props.params.categoryName+"/");
-    this.recepiesRef.limit(100).on("child_added", function(dataSnapshot) {
-      this.recepies.push(dataSnapshot.val());
-      this.setState({
-        recepies: this.recepies
-      });
-    }.bind(this));
-  },
-  componentDidMount: function(){
+    return {
 
+    }
   },
   render: function () {
-
+    var layoutOptions = {
+      flexWrap: 'wrap',
+      justify: 'flex-start',
+      alignItems: 'stretch',
+      alignContent: 'strech',
+      display: 'flex'
+    };
     return (
-        <Grid>
-          <PageHeader>Chefssss<small>  {this.props.params.categoryName} Food  </small>
-          <small>
-            <Link to="categories">Back</Link>
-          </small>
-          </PageHeader>
+        <FullpageImage>
+          <Grid layout={layoutOptions} direction="column">
+            <BigAssTitle>{this.props.category}</BigAssTitle>
+            <div className="content">
+              This is Content
+            </div>
+            <div className="menu-item">
+              <Link href="/">Back</Link>
+            </div>
+          </Grid>
 
-          <Button bsStyle="primary">
-            <Link to="createNew" categoryName={this.props.params.categoryName}>
-              New {this.props.params.categoryName}
-            </Link>
-          </Button>
-        </Grid>
+
+        </FullpageImage>
       );
   }
 });

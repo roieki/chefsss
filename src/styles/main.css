@@ -1,8 +1,8 @@
 /* Stiziles */
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,900,700italic,900italic);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,700,300);
 
 html, body {
   background: white;
 }
 
-* { font-family: 'Roboto', sans-serif; line-height:1.2; vertical-align:middle; }
+* { font-family: 'Roboto Condensed', sans-serif; }

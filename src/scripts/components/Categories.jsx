@@ -7,28 +7,50 @@
 var React = require('react/addons');
 require('../../styles/Categories.css');
 
-var Navbar = require('../../scripts/components/Navbar.jsx');
+var FullpageImage = require('../../scripts/components/FullpageImage.jsx');
+var Grid = require('../../scripts/components/Grid.jsx');
+var BigAssTitle = require('../../scripts/components/BigAssTitle.jsx');
+
+var Link = require('react-router-component').Link;
+
 
 var Categories = React.createClass({
-  mixins: [ReactFireMixin],
   getInitialState: function() {
-    this.categories = [];
-    return {categories: []};
+    return {
+      categories : ['Breakfast', 'Lunch', 'Dinner']
+    };
   },
   componentWillMount: function() {
-    this.categoriesRef = new Firebase("https://brilliant-fire-612.firebaseio.com/categories/");
-    this.categoriesRef.limit(100).on("child_added", function(dataSnapshot) {
-      this.categories.push(dataSnapshot.val());
-      this.setState({
-        categories: this.categories
-      });
-    }.bind(this));
+
   },
   render: function () {
+    var layoutOptions = {
+      flexWrap: 'wrap',
+      justify: 'flex-start',
+      alignItems: 'stretch',
+      alignContent: 'strech',
+      display: 'flex'
+    };
+
     return (
         <div>
-          <Navbar name="categories" categories={this.state.categories}/>
-          {this.props.activeRouteHandler}
+          <FullpageImage>
+            <Grid layout={layoutOptions} direction="column">
+              <BigAssTitle>TunEat</BigAssTitle>
+              <div className="menu-item">
+                <Link href="/breakfast" han>Breakfast</Link>
+
+              </div>
+              <div className="menu-item">
+                <Link href="/lunch">Lunch</Link>
+              </div>
+              <div className="menu-item">
+                <Link href="/dinner">Dinner</Link>
+              </div>
+            </Grid>
+
+
+          </FullpageImage>
         </div>
       );
   }

@@ -6,7 +6,10 @@
 
 var React = require('react/addons');
 require('../../styles/FrontpageListItem.css');
-var Link = require('react-router/Link');
+var Link = require('react-router-component').Link;
+
+
+
 var _ = require('lodash');
 
 var FrontpageListItem = React.createClass({
@@ -14,7 +17,7 @@ var FrontpageListItem = React.createClass({
     var category = this.props.content.toLowerCase();
     return (
         <div className="FrontpageListItem card">
-          <Link to='category' categoryName={category}>{this.props.content}</Link>
+          <Link href={"/" + category}>{this.props.content}</Link>
         </div>
       );
   }

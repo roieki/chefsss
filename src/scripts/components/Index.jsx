@@ -10,9 +10,14 @@ var Landing = require('../../scripts/components/Landing.jsx');
 var App = require('../../scripts/components/App.jsx');
 var Categories = require('../../scripts/components/Categories.jsx');
 var Category = require('../../scripts/components/Category.jsx');
-var NewRecipe = require('../../scripts/components/NewRecipe.jsx');
-var Routes = require('react-router/Routes');
-var Route = require('react-router/Route');
+var EditRecipe = require('../../scripts/components/EditRecipe.jsx');
+var ReactRouter = require('react-router-component');
+
+var Locations = ReactRouter.Locations;
+var Location = ReactRouter.Location;
+var Link = ReactRouter.Link;
+
+
 
 // Export React so the devtools can find it
 (window !== window.top ? window.top : window).React = React;
@@ -23,15 +28,15 @@ require('../../styles/main.css');
 
 
 var Index = React.createClass({
+
   render: function() {
     return (
-      <Routes location="history">
-        <Route handler={App}>
-          <Route name="categories" path="/index.html" handler={Categories} />
-          <Route name="category" path="/category/:categoryName" handler={Category} />
-          <Route name="createNew" path="/category/create/:categoryName" handler={NewRecipe} />
-        </Route>
-      </Routes>
+      <div>
+        <Locations hash>
+          <Location path="/" handler={Categories} />
+          <Location path="/:category" handler={Category} />
+        </Locations>
+      </div>
     );
   }
 });

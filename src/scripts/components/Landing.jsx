@@ -12,7 +12,7 @@ var Navbar = require('../../scripts/components/Navbar.jsx');
 
 var Landing = React.createClass({
   render: function() {
-    var bla = this.props.activeRouteHandler;
+    
     return (
       <div>
         Lading

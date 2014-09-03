@@ -6,7 +6,7 @@
 
 var React = require('react/addons');
 require('../../styles/App.css');
-var Link = require('react-router/Link');
+
 
 
 var App = React.createClass({
@@ -15,7 +15,7 @@ var App = React.createClass({
 
     return (
         <div className="app">
-          {this.props.activeRouteHandler()}
+
         </div>
 
       );
